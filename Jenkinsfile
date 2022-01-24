@@ -4,12 +4,12 @@ pipeline {
         stage ('Build'){
             steps{
                 sh 'docker build -t hello-word-php-apache .'
-                sh 'docker run -d --rm -p 8099:80 hello-word-php-apache'
+                sh 'docker run -d --rm -p 8085:80 hello-word-php-apache'
             }
         }
         stage('Test'){
             steps{
-                sh 'wget http://localhost:8099/'
+                sh 'wget http://localhost:8085/'
             }
         }
     }
